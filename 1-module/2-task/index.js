@@ -16,9 +16,6 @@ function isValid(name) {
     console.log('поле пустое или содержит меньше 4 символов');
     return false;
   }
-
-
-
   for (let i = 0; i < name.length; i++) {
     if (name[i] == ' ') {
       console.log('Поле имеет пробелы');
