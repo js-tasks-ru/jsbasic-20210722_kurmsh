@@ -11,19 +11,24 @@ function print(text) {
  */
 function isValid(name) {
   // ваш код...
-
-  if (name === null || name === '' || name.length < 4) {
+  if (name === null || name.includes(' ') || name === '' || name.length < 4) {
     console.log('поле пустое или содержит меньше 4 символов');
     return false;
   }
-  for (let i = 0; i < name.length; i++) {
-    if (name[i] == ' ') {
-      console.log('Поле имеет пробелы');
-      return false;
-    }
-
-  }
   return true;
+  
+//   if (name === null || name === '' || name.length < 4) {
+//     console.log('поле пустое или содержит меньше 4 символов');
+//     return false;
+//   }
+//   for (let i = 0; i < name.length; i++) {
+//     if (name[i] == ' ') {
+//       console.log('Поле имеет пробелы');
+//       return false;
+//     }
+
+//   }
+//   return true;
 
 }
 function sayHello() {
