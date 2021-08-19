@@ -28,5 +28,3 @@ function highlight(table) {
     }
   }
 };
-
-
