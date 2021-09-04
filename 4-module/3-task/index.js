@@ -1,32 +1,23 @@
 function highlight(table) {
-  let table = document;
-  for (let td of table.querySelectorAll('dataset.available')) {
-    let status = td.getAttribute(dataset.available);
-    if (status === 'false') {
-      td.classList.add('unavailable');
-      console.log(td);
-    } else {
-      td.classList.add('available');
-    }
-  }
-  for (let td of table.querySelectorAll('td')) {
-    let hidden = td.getAttribute('dataset.available');
+  for (let tr of table.querySelectorAll('tr')) {
+    let status = tr.querySelectorAll('td');
+    let filterd = status.forEach((td, index, arr) => {
+      if (td.dataset.available === 'true') {
+        tr.classList.add('available');
+      } else if (td.dataset.available === 'false') {
+        tr.classList.add('unavailable');
+      } else if (td.textContent === 'm') {
+        tr.classList.add('male');
+      } else if (td.textContent === 'f') {
+        tr.classList.add('female');
+      } else if (+(td.textContent) < 18) {
+        tr.style.textDecoration = 'line-through';
+      }
+    });
+    let hidden = tr.querySelector('td[data-available]');
     if (!hidden) {
-      td.setAttribute('hidden', true);
+      tr.setAttribute('hidden', 'hidden');
     }
+    tr.parentElement.tagName === 'THEAD' && tr.removeAttribute('hidden');
   }
-  for (let td of table.querySelectorAll('td')) {
-    if (td.textContent === 'm') {
-      td.classList.add('male');
-    } else if (td.textContent === 'f') {
-      td.classList.add('female');
-    }
-  }
-  for (let td of document.querySelectorAll('td')) {
-    if (+(td.textContent) < 18) {
-      td.style.textDecoration = 'line-through';
-    }
-  }
-};
-
-
+}
