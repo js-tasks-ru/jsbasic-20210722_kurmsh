@@ -6,4 +6,4 @@ function makeFriendsList(friends) {
     ul.append(li);
   }
   return ul;
-};
+}
