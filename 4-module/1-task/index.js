@@ -1,7 +1,9 @@
 function makeFriendsList(friends) {
   let ul = document.createElement('ul');
-  let li = document.createElement('li');
-  ul.innerHTML = '\n<li>Artsiom Mezin</li>\n <li>Ilia Kantor</li>\n <li>Christopher Michael</li>\n ';
+  for (let key in friends) {
+    let li = document.createElement('li');
+    li.innerHTML = `${friends[key].firstName} ${friends[key].lastName}`;
+    ul.append(li);
+  }
   return ul;
-}
-makeFriendsList(friends);
+};
